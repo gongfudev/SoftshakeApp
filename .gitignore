@@ -1,4 +1,5 @@
 # IPHONE projects 
+
 # the build
 build
 
@@ -20,3 +21,6 @@ Configurator/Brand.m
 Configurator/Resources/Brands/vw.csv
 Configurator/Resources/Brands/VW/Tiguan/tiguan-catalogue.infos
 Configurator/Resources/xc60.txt
+
+# Subversion
+.svn

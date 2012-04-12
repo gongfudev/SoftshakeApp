@@ -58,27 +58,79 @@
     </script>
   </head>
   <body onload="onBodyLoad()">
+    
+    <!-- http://srichards.host.adobe.com/jQueryMobile/Tutorial.html -->
+
       <div data-role="page" id="home" data-theme="a">
           <div data-role="header"><!-- This div with data-role is the header, shown in the black -->
               <h1>Softshake 2012</h1> 
           </div> 
           <div data-role="content"><!-- This div is the body of the page -->
-              <p><a href="#conf" data-role="button" data-transition="flip">Conférences</a></p><!-- navigation button's href points to other page -->
+            <p><a href="#agenda" data-role="button" data-transition="flip">Agenda</a></p><!-- navigation button's href points to other page -->
+            <p><a href="#speakers" data-role="button" data-transition="flip">Conférenciers</a></p>
+            <p><a href="#sessions" data-role="button" data-transition="flip">Sessions</a></p>
+            <p><a href="#sponsors" data-role="button" data-transition="flip">Sponsors</a></p>
           </div>  
-          <div data-role="footer">
+          <div data-role="footer" data-position="fixed">
               <h4>Allez-y voir le site <a href="http://soft-shake.ch/">softshake.ch</a></h4>
           </div>  
       </div> 
-      <div data-role="page" id="conf" data-theme="a">  
-          <div data-role="header"><!-- This div with data-role is the header, shown in the black -->
-              <p><a href="#back" data-role="button" data-rel="back">retour</a></p> 
-          </div> 
-          <div data-role="content"> 
-              <ul data-role="listview" id="list"><!-- Special Widget which is List View to show data in a list -->
-                  <li>Conférence 1</li>
-                  <li>Conférence 2</li>
-              </ul> 
-          </div>
+    
+    <div data-role="page" id="agenda" data-theme="a" data-add-back-btn="true" data-back-btn-text="Home" data-icon="arrow-l">
+      <div data-role="header" ><!-- This div with data-role is the header, shown in the black -->
+        <h1>Agenda</h1> 
+      </div> 
+      <div data-role="content"> 
+        <ul data-role="listview" id="list"><!-- Special Widget which is List View to show data in a list -->
+          <li data-icon="arrow-r">Jour 1</li>
+          <li data-icon="arrow-l">Jour 2</li>
+        </ul> 
       </div>
+      <div data-role="footer"  data-position="fixed">
+        <div data-role="navbar" data-iconpos="top">
+          <ul>
+            <li><a href="#" data-icon="star">tracks</a></li>
+            <li><a href="#dealers" data-icon="grid">chrono</a></li>
+          </ul>
+        </div>
+        <!-- /navbar -->
+      </div>
+    </div>
+    
+    <div data-role="page" id="speakers" data-theme="a" data-add-back-btn="true">
+      <div data-role="header">
+        <h1>Conférenciers</h1> 
+      </div> 
+      <div data-role="content"> 
+        <ul data-role="listview" id="list">
+          <li>Conférencier 1</li>
+          <li>Conférencier 2</li>
+        </ul> 
+      </div>
+    </div>
+    
+    <div data-role="page" id="sessions" data-theme="a" data-add-back-btn="true">
+      <div data-role="header">
+        <h1>Sessions</h1> 
+      </div> 
+      <div data-role="content"> 
+        <ul data-role="listview" id="list">
+          <li>Session 1</li>
+          <li>Session 2</li>
+        </ul> 
+      </div>
+    </div>
+    
+    <div data-role="page" id="sponsors" data-theme="a" data-add-back-btn="true">
+      <div data-role="header">
+        <h1>Sponsors</h1> 
+      </div> 
+      <div data-role="content"> 
+        <ul data-role="listview" id="list">
+          <li>Sponsor 1</li>
+          <li>Sponsor 2</li>
+        </ul> 
+      </div>
+    </div>
   </body>
 </html>

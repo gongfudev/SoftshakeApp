@@ -1,0 +1,16 @@
+[
+ {
+  "firstname":"Kent",
+  "lastname":"Beck",
+  "URL":"http://twitter.com/kentbeck",
+  "photoURL": "http://about.me/kentbeck/me.png",
+  "bio": "<p>Author of the popular book Embrace Change, Kent Beck works currently for Facebook...</p>"
+ },
+ {
+ "firstname":"Martin",
+ "lastname":"Fowler",
+ "URL":"http://twitter.com/mfowler",
+ "photoURL": "http://about.me/mfowler/me.png",
+ "bio": "<p>Author of many good books and good friend of Kent Beck, Martin enjoys fishing a lot.</p>"
+ },
+]
