@@ -1,6 +1,8 @@
-[
+{
+    "persons":
+    [
  {
-  "firstname":"Kent",
+  "firstname":"Kent 2",
   "lastname":"Beck",
   "URL":"http://twitter.com/kentbeck",
   "photoURL": "http://about.me/kentbeck/me.png",
@@ -12,5 +14,6 @@
  "URL":"http://twitter.com/mfowler",
  "photoURL": "http://about.me/mfowler/me.png",
  "bio": "<p>Author of many good books and good friend of Kent Beck, Martin enjoys fishing a lot.</p>"
- },
+ }
 ]
+}

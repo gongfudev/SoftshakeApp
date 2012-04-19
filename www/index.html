@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
 	<meta charset="utf-8">
 
-
         <link rel="stylesheet" href="jquery.mobile-1.1.0-rc.1.min.css" /> 
         <script src="jquery-1.7.1.js"></script> 
         <script src="jquery.mobile-1.1.0-rc.1.min.js"></script>
@@ -53,8 +52,12 @@
 	{
 		// do your thing!
 		// navigator.notification.alert("Cordova is working")
-	}
-    
+        $.getJSON('db-speakers.json', function(conference) {
+                  var template = "{{#persons}}<li>{{firstname}} {{lastname}}</li>{{/persons}}";
+                  var html = Mustache.render(template, conference);
+                  $("#speakers ul[data-role='listview']").html(html);
+        });
+    }
     </script>
   </head>
   <body onload="onBodyLoad()">
@@ -96,15 +99,14 @@
         <!-- /navbar -->
       </div>
     </div>
-    
+       
     <div data-role="page" id="speakers" data-theme="a" data-add-back-btn="true">
       <div data-role="header">
         <h1>Conférenciers</h1> 
       </div> 
       <div data-role="content"> 
-        <ul data-role="listview" id="list">
-          <li>Conférencier 1</li>
-          <li>Conférencier 2</li>
+        <ul data-role="listview">
+            <li>Pas de Conférencier</li>
         </ul> 
       </div>
     </div>
@@ -132,5 +134,7 @@
         </ul> 
       </div>
     </div>
-  </body>
+
+      <script src="mustache-0.4.0.js"></script>
+</body>
 </html>

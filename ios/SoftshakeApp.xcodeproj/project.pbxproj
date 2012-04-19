@@ -38,6 +38,7 @@
 		C49915591507D508004E377D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49915581507D508004E377D /* MainViewController.m */; };
 		C499155B1507D508004E377D /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C499155A1507D508004E377D /* MainViewController.xib */; };
 		C499155F1507D508004E377D /* verify.sh in Resources */ = {isa = PBXBuildFile; fileRef = C499155E1507D508004E377D /* verify.sh */; };
+		C4EB88E915405A6F00E6CD3B /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C4EB88E815405A6F00E6CD3B /* readme.md */; };
 		C4FD7CA8151A47CE00C35C4B /* www in Resources */ = {isa = PBXBuildFile; fileRef = C4FD7CA7151A47CE00C35C4B /* www */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		C499155A1507D508004E377D /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = Classes/MainViewController.xib; sourceTree = "<group>"; };
 		C499155D1507D508004E377D /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
 		C499155E1507D508004E377D /* verify.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = verify.sh; sourceTree = "<group>"; };
+		C4EB88E815405A6F00E6CD3B /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = readme.md; path = ../readme.md; sourceTree = "<group>"; };
 		C4FD7CA7151A47CE00C35C4B /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../www; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 		C49914FB1507D507004E377D = {
 			isa = PBXGroup;
 			children = (
+				C4EB88E815405A6F00E6CD3B /* readme.md */,
 				C4FD7CA7151A47CE00C35C4B /* www */,
 				C49915271507D507004E377D /* SoftshakeApp */,
 				C499150C1507D507004E377D /* Frameworks */,
@@ -333,6 +336,7 @@
 				C499155B1507D508004E377D /* MainViewController.xib in Resources */,
 				C499155F1507D508004E377D /* verify.sh in Resources */,
 				C4FD7CA8151A47CE00C35C4B /* www in Resources */,
+				C4EB88E915405A6F00E6CD3B /* readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
