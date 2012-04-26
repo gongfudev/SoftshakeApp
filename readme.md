@@ -3,6 +3,23 @@ Application mobile pour la conférence Softshake.ch.
 
 # Séances
 
+## Séance #7
+
+(JS Genève du 26/04/2012 : Présentation GongFu.IO)
+
+
+Stories
+
+* Créé un enchaînement de pages (template "multipages") pour afficher le détail d'un Orateur
+
+Tâches
+
+* Créer nouveau bloc pour une sous-page
+* Créer le lien (attention: le tiret dans le ID de la page posait problème; il fallait l'enlever)
+* Citer URL des sites distants dans Cordova.plist (photos des orateurs...)
+
+
+
 ## Séance #6
 
 Stories

@@ -53,7 +53,7 @@
 		// do your thing!
 		// navigator.notification.alert("Cordova is working")
         $.getJSON('db-speakers.json', function(conference) {
-                  var template = "{{#persons}}<li>{{firstname}} {{lastname}}</li>{{/persons}}";
+                  var template = "{{#persons}}<li><a href=\"#speaker01\">{{firstname}} {{lastname}}</a></li>{{/persons}}";
                   var html = Mustache.render(template, conference);
                   $("#speakers ul[data-role='listview']").html(html);
         });
@@ -111,6 +111,31 @@
       </div>
     </div>
     
+  <div data-role="page" id="speaker01" data-theme="a" data-add-back-btn="true">
+      <div data-role="header">
+          <h1>Kent Beck</h1> 
+      </div> 
+      <div data-role="content">
+          <h1>Biographie</h1>
+          <img src="http://fr.wikipedia.org/wiki/Fichier:Kent_Beck_no_Workshop_Mapping_XP.jpg" alt="Kent Beck" height="50" style="position:absolute; clip:rect(0px,60px,200px,0px);" />
+          <p>Kent Beck est un informaticien américain né en 1961.</p>
+          <p>Il est l'inventeur du concept d'eXtreme Programming et l'auteur du livre « Extreme Programming Explained. Embrace Change », (ISBN 0201616416), « Test Driven Development: by example », (ISBN 0321146530), et « Planning Extreme Programming », avec Martin Fowler, (ISBN 0201710919).</p>
+          <p>Il est connu pour ses développements en Smalltalk.</p>
+          <p>En 1996 Kent Beck, Ward Cunningham et Ron Jeffries élaborent de nouvelles pratiques de développement lors d’un projet à DaimlerChrysler. La méthode XP (extreme programming), à l'origine de la notoriété de Kent Beck, naît officiellement en octobre 1999 avec « Extreme Programming Explained »</p>
+      </div>
+  </div>
+  
+      <div data-role="page" id="speaker-01" data-theme="a" data-add-back-btn="true">
+          <div data-role="header">
+              <h1>Conférenciers</h1> 
+          </div> 
+          <div data-role="content"> 
+              <ul data-role="listview">
+                  <li>Pas de Conférencier</li>
+              </ul> 
+          </div>
+      </div>
+      
     <div data-role="page" id="sessions" data-theme="a" data-add-back-btn="true">
       <div data-role="header">
         <h1>Sessions</h1> 
