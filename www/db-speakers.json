@@ -1,14 +1,16 @@
 {
-    "persons":
+    "speakers":
     [
  {
-  "firstname":"Kent 2",
+     "id": "KentBeck",
+     "firstname":"Kent",
   "lastname":"Beck",
   "URL":"http://twitter.com/kentbeck",
-  "photoURL": "http://about.me/kentbeck/me.png",
-  "bio": "<p>Author of the popular book Embrace Change, Kent Beck works currently for Facebook...</p>"
+  "photoURL": "http://fr.wikipedia.org/wiki/Fichier:Kent_Beck_no_Workshop_Mapping_XP.jpg",
+     "bio": "<p>Kent Beck est un informaticien américain né en 1961.</p>\n<p>Il est l'inventeur du concept d'eXtreme Programming et l'auteur du livre « Extreme Programming Explained. Embrace Change », (ISBN 0201616416), « Test Driven Development: by example », (ISBN 0321146530), et « Planning Extreme Programming », avec Martin Fowler, (ISBN 0201710919).</p>\n<p>Il est connu pour ses développements en Smalltalk.</p>\n<p>En 1996 Kent Beck, Ward Cunningham et Ron Jeffries élaborent de nouvelles pratiques de développement lors d’un projet à DaimlerChrysler. La méthode XP (extreme programming), à l'origine de la notoriété de Kent Beck, naît officiellement en octobre 1999 avec « Extreme Programming Explained »</p>"
  },
  {
+     "id": "MartinFowler",
  "firstname":"Martin",
  "lastname":"Fowler",
  "URL":"http://twitter.com/mfowler",

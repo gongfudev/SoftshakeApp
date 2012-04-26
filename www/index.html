@@ -19,6 +19,7 @@
 	<script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script>
     <script type="text/javascript">
 
+        var conferenceJSON;
 
 	// If you want to prevent dragging, uncomment this section
 	/*
@@ -43,7 +44,26 @@
 	{		
 		document.addEventListener("deviceready", onDeviceReady, false);
 	}
-	
+
+        function renderSpeakersList(speakers) {
+            var template = "{{#.}}<li><a href=\"#{{id}}\">{{firstname}} {{lastname}}</a></li>{{/.}}";
+            var html = Mustache.render(template, speakers);
+            $("#speakers ul[data-role='listview']").html(html);
+            
+            $( speakers).each( function( index, speaker) {
+                var speakerHTML = renderSpeakerDetail(speaker);
+                $( speakerHTML).insertAfter( "#speakers");
+            });
+        }
+        
+        function renderSpeakerDetail(speaker) {
+            var template = "<div data-role=\"page\" id=\"{{id}}\" data-theme=\"a\" data-add-back-btn=\"true\">"
+                + "<div data-role=\"header\"><h1>{{firstname}} {{lastname}}</h1></div>"
+                + "<div data-role=\"content\"><h1>Biographie</h1><p>{{bio}}</p></div>"
+                + "</div>";
+            return Mustache.render(template, speaker);
+        }
+        
 	/* When this function is called, Cordova has been initialized and is ready to roll */
 	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
 	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
@@ -52,10 +72,9 @@
 	{
 		// do your thing!
 		// navigator.notification.alert("Cordova is working")
-        $.getJSON('db-speakers.json', function(conference) {
-                  var template = "{{#persons}}<li><a href=\"#speaker01\">{{firstname}} {{lastname}}</a></li>{{/persons}}";
-                  var html = Mustache.render(template, conference);
-                  $("#speakers ul[data-role='listview']").html(html);
+        $.getJSON('db-speakers.json', function( dataJSON) {
+                  conferenceJSON = dataJSON;
+                  renderSpeakersList(conferenceJSON.speakers);
         });
     }
     </script>
@@ -111,32 +130,26 @@
       </div>
     </div>
     
-  <div data-role="page" id="speaker01" data-theme="a" data-add-back-btn="true">
+  <div data-role="page" id="speakerDetail" data-theme="a" data-add-back-btn="true">
       <div data-role="header">
-          <h1>Kent Beck</h1> 
+          <h1>The Speaker !</h1> 
       </div> 
       <div data-role="content">
           <h1>Biographie</h1>
-          <img src="http://fr.wikipedia.org/wiki/Fichier:Kent_Beck_no_Workshop_Mapping_XP.jpg" alt="Kent Beck" height="50" style="position:absolute; clip:rect(0px,60px,200px,0px);" />
-          <p>Kent Beck est un informaticien américain né en 1961.</p>
-          <p>Il est l'inventeur du concept d'eXtreme Programming et l'auteur du livre « Extreme Programming Explained. Embrace Change », (ISBN 0201616416), « Test Driven Development: by example », (ISBN 0321146530), et « Planning Extreme Programming », avec Martin Fowler, (ISBN 0201710919).</p>
-          <p>Il est connu pour ses développements en Smalltalk.</p>
-          <p>En 1996 Kent Beck, Ward Cunningham et Ron Jeffries élaborent de nouvelles pratiques de développement lors d’un projet à DaimlerChrysler. La méthode XP (extreme programming), à l'origine de la notoriété de Kent Beck, naît officiellement en octobre 1999 avec « Extreme Programming Explained »</p>
+          <p>voici la bio</p>
       </div>
   </div>
   
-      <div data-role="page" id="speaker-01" data-theme="a" data-add-back-btn="true">
-          <div data-role="header">
-              <h1>Conférenciers</h1> 
-          </div> 
-          <div data-role="content"> 
-              <ul data-role="listview">
-                  <li>Pas de Conférencier</li>
-              </ul> 
-          </div>
-      </div>
+
       
-    <div data-role="page" id="sessions" data-theme="a" data-add-back-btn="true">
+      
+      
+      
+      
+      
+      
+      
+      <div data-role="page" id="sessions" data-theme="a" data-add-back-btn="true">
       <div data-role="header">
         <h1>Sessions</h1> 
       </div> 

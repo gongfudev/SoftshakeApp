@@ -3,6 +3,20 @@ Application mobile pour la conférence Softshake.ch.
 
 # Séances
 
+## Séance #8
+
+Stories
+
+* Construire dynamiquement le Detail de chaque Orateur
+
+
+Tâches
+
+* Fabriquer dynamiquement une sous page par Orateur
+* Lier la liste avec les sous pages (Ajouter l'id des Orateurs dans le JSON)
+
+
+
 ## Séance #7
 
 (JS Genève du 26/04/2012 : Présentation GongFu.IO)
@@ -15,7 +29,7 @@ Stories
 Tâches
 
 * Créer nouveau bloc pour une sous-page
-* Créer le lien (attention: le tiret dans le ID de la page posait problème; il fallait l'enlever)
+* Créer le lien vers la sous page Orateur (le tiret dans le ID de la page posait problème; il fallait l'enlever)
 * Citer URL des sites distants dans Cordova.plist (photos des orateurs...)
 
 
@@ -45,3 +59,7 @@ Tâches
 * Ne pas oublier d'ajouter le répertoire `images` à l'import des sources de JQueryMobile.
 * Comme indiqué dans la doc, il se confirme que la balise `footer` de JQueryMobile soit bien placée en bas dans le simulateur iPhone 5, mais soit calée juste en dessous des composants dans la version 4 du simulateur iPhone (de XCode). C'est la balise `data-position="fixed"` qui ne fonctionne pas.
 * Idem pour la NavigationBar (voir écran Agenda).
+* Attention: le tiret dans le ID de la page posait problème; il fallait l'enlever
+* Citer URL des sites distants dans Cordova.plist (photos des orateurs...)
+* Attention d'utiliser les bonnes versions entre JQuery et JQuery Mobile (nous concernant, respectivement 1.7.1 et 1.1.0-rc.1)
+
