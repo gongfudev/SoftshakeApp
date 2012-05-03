@@ -22,7 +22,7 @@
 	<false/>
 	<key>ExternalHosts</key>
 	<array>
-		<string>*.wikipedia.org</string>
+		<string>*</string>
 		<string>*.phonegap.com</string>
 		<string>*.soft-shake.ch</string>
 	</array>

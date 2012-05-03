@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
 	<meta charset="utf-8">
 
-        <link rel="stylesheet" href="jquery.mobile-1.1.0-rc.1.min.css" /> 
+        <link rel="stylesheet" href="jquery.mobile-1.1.0-rc.1.min.css" />
+        <link rel="stylesheet" href="softshakeapp.css" />
         <script src="jquery-1.7.1.js"></script> 
         <script src="jquery.mobile-1.1.0-rc.1.min.js"></script>
-
         
 	<!-- iPad/iPhone specific css below, add after your main css >
 	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
@@ -46,7 +46,8 @@
 	}
 
         function renderSpeakersList(speakers) {
-            var template = "{{#.}}<li><a href=\"#{{id}}\">{{firstname}} {{lastname}}</a></li>{{/.}}";
+            var template = "{{#.}}<li><img src=\"{{photoURL}}\" class=\"ui-li-thumb\" />"
+                +"<a href=\"#{{id}}\">{{firstname}} {{lastname}}</a></li>{{/.}}";
             var html = Mustache.render(template, speakers);
             $("#speakers ul[data-role='listview']").html(html);
             
@@ -59,7 +60,8 @@
         function renderSpeakerDetail(speaker) {
             var template = "<div data-role=\"page\" id=\"{{id}}\" data-theme=\"a\" data-add-back-btn=\"true\">"
                 + "<div data-role=\"header\"><h1>{{firstname}} {{lastname}}</h1></div>"
-                + "<div data-role=\"content\"><h1>Biographie</h1><p>{{bio}}</p></div>"
+                + "<div data-role=\"content\"><h1>Biographie</h1>"
+                + "<img class=\"thumb leftwards\" src=\"{{photoURL}}\" />{{&bio}}</div>"
                 + "</div>";
             return Mustache.render(template, speaker);
         }
