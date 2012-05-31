@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Softshake App</title>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+	<meta charset="utf-8">
+
+        <link rel="stylesheet" href="jquery.mobile-1.1.0-rc.1.min.css" />
+        <link rel="stylesheet" href="softshakeapp.css" />
+        <script src="jquery-1.7.1.js"></script> 
+        <script src="jquery.mobile-1.1.0-rc.1.min.js"></script>
+        
+
+    <!-- iPad/iPhone specific css below, add after your main css >
+	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
+	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
+	-->
+	<!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
+        <script src="json2.js"></script>
+        <script src="pgDebug.js"></script>
+	<!-- <script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script> -->
+    <script type="text/javascript">
+
+        var conferenceJSON;
+
+	// If you want to prevent dragging, uncomment this section
+	/*
+	function preventBehavior(e) 
+	{ 
+      e.preventDefault(); 
+    };
+	document.addEventListener("touchmove", preventBehavior, false);
+	*/
+	
+	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+	for more details -jm */
+	/*
+	function handleOpenURL(url)
+	{
+		// TODO: do something with the url passed in.
+	}
+	*/
+	
+	function onBodyLoad()
+	{		
+		document.addEventListener("deviceready", onDeviceReady, false);
+	}
+
+        function renderSpeakersList(speakers) {
+            var template = "{{#.}}<li><img src=\"{{photoURL}}\" class=\"ui-li-thumb\" />"
+                +"<a href=\"#{{id}}\">{{firstname}} {{lastname}}</a></li>{{/.}}";
+            var html = Mustache.render(template, speakers);
+            $("#speakers ul[data-role='listview']").html(html);
+            
+            $( speakers).each( function( index, speaker) {
+                var speakerHTML = renderSpeakerDetail(speaker);
+                $( speakerHTML).insertAfter( "#speakers");
+            });
+        }
+        
+        function renderSpeakerDetail(speaker) {
+            var template = "<div data-role=\"page\" id=\"{{id}}\" data-theme=\"a\" data-add-back-btn=\"true\">"
+                + "<div data-role=\"header\"><h1>{{firstname}} {{lastname}}</h1></div>"
+                + "<div data-role=\"content\"><h1>Biographie</h1>"
+                + "<img class=\"thumb leftwards\" src=\"{{photoURL}}\" />{{&bio}}</div>"
+                + "</div>";
+            return Mustache.render(template, speaker);
+        }
+        
+	/* When this function is called, Cordova has been initialized and is ready to roll */
+	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+	for more details -jm */
+	function onDeviceReady()
+	{
+		// do your thing!
+		// navigator.notification.alert("Cordova is working")
+        $.getJSON('db-speakers.json', function( dataJSON) {
+                  conferenceJSON = dataJSON;
+                  renderSpeakersList(conferenceJSON.speakers);
+        });
+    }
+    </script>
+  </head>
+  <body onload="onBodyLoad()">
+    
+    <!-- http://srichards.host.adobe.com/jQueryMobile/Tutorial.html -->
+
+      <div data-role="page" id="home" data-theme="a">
+          <div data-role="header"><!-- This div with data-role is the header, shown in the black -->
+              <h1>Softshake 2012</h1> 
+          </div> 
+          <div data-role="content"><!-- This div is the body of the page -->
+            <p><a href="#agenda" data-role="button" data-transition="flip">Agenda</a></p><!-- navigation button's href points to other page -->
+            <p><a href="#speakers" data-role="button" data-transition="flip">Conférenciers</a></p>
+            <p><a href="#sessions" data-role="button" data-transition="flip">Sessions</a></p>
+            <p><a href="#sponsors" data-role="button" data-transition="flip">Sponsors</a></p>
+          </div>  
+          <div data-role="footer" data-position="fixed">
+              <h4>Allez-y voir le site <a href="http://soft-shake.ch/">softshake.ch</a></h4>
+          </div>  
+      </div> 
+    
+    <div data-role="page" id="agenda" data-theme="a" data-add-back-btn="true" data-back-btn-text="Home" data-icon="arrow-l">
+      <div data-role="header" ><!-- This div with data-role is the header, shown in the black -->
+        <h1>Agenda</h1> 
+      </div> 
+      <div data-role="content"> 
+        <ul data-role="listview" id="list"><!-- Special Widget which is List View to show data in a list -->
+          <li data-icon="arrow-r">Jour 1</li>
+          <li data-icon="arrow-l">Jour 2</li>
+        </ul> 
+      </div>
+      <div data-role="footer"  data-position="fixed">
+        <div data-role="navbar" data-iconpos="top">
+          <ul>
+            <li><a href="#" data-icon="star">tracks</a></li>
+            <li><a href="#dealers" data-icon="grid">chrono</a></li>
+          </ul>
+        </div>
+        <!-- /navbar -->
+      </div>
+    </div>
+       
+    <div data-role="page" id="speakers" data-theme="a" data-add-back-btn="true">
+      <div data-role="header">
+        <h1>Conférenciers</h1> 
+      </div> 
+      <div data-role="content"> 
+        <ul data-role="listview">
+            <li>Pas de Conférencier</li>
+        </ul> 
+      </div>
+    </div>
+    
+  <div data-role="page" id="speakerDetail" data-theme="a" data-add-back-btn="true">
+      <div data-role="header">
+          <h1>The Speaker !</h1> 
+      </div> 
+      <div data-role="content">
+          <h1>Biographie</h1>
+          <p>voici la bio</p>
+      </div>
+  </div>
+  
+
+      
+      
+      
+      
+      
+      
+      
+      
+      <div data-role="page" id="sessions" data-theme="a" data-add-back-btn="true">
+      <div data-role="header">
+        <h1>Sessions</h1> 
+      </div> 
+      <div data-role="content"> 
+        <ul data-role="listview" id="list">
+          <li>Session 1</li>
+          <li>Session 2</li>
+        </ul> 
+      </div>
+    </div>
+    
+    <div data-role="page" id="sponsors" data-theme="a" data-add-back-btn="true">
+      <div data-role="header">
+        <h1>Sponsors</h1> 
+      </div> 
+      <div data-role="content"> 
+        <ul data-role="listview" id="list">
+          <li>Sponsor 1</li>
+          <li>Sponsor 2</li>
+        </ul> 
+      </div>
+    </div>
+
+      <script src="mustache-0.4.0.js"></script>
+</body>
+</html>
