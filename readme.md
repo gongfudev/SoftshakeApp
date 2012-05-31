@@ -3,6 +3,21 @@ Application mobile pour la conférence Softshake.ch.
 
 # Séances
 
+## Séance du 31/05/2012
+
+* Mettre en place l'envrionnement de debug : desktop, simulateur (inspecter, breakpoints... ?).
+** http://phonegap.com/2011/05/18/debugging-phonegap-javascript/
+
+
+Pour debugger avec Weinre (en remote) :
+
+* Installer : `sudo npm -g install weinre`
+* Lancer : `weinre`
+* Configurer (l'application PhoneGap) : `<script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>`
+* Lancer (l'application) et ouvrir (navigateur sur `http://localhost:8080/client/#anonymous`)
+
+
+
 ## Séance #10
 
 Propositions :
