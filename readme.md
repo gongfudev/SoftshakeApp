@@ -3,6 +3,16 @@ Application mobile pour la conférence Softshake.ch.
 
 # Séances
 
+
+## Séance du 28/06/2012 (#15)
+
+* Déploiement de l'application iOS sur les devices :
+** Intégration des certificats Apple d'Olivier et Jacques
+** Création de l'application dans le compte Apple iOS Developer
+** Et du Provisioning Profile de development
+** Déploiement sur les iPhone d'Olivier et Jacques
+
+
 ## Séance du 31/05/2012
 
 * Mettre en place l'envrionnement de debug : desktop, simulateur (inspecter, breakpoints... ?).
